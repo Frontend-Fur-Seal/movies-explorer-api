@@ -44,11 +44,11 @@ app.use(express.json());
 
 app.use(requestLogger);
 
-app.use(routes);
-
 app.post('/signin', validationSignin, login);
 app.post('/signup', validationSignup, createUser);
 app.get('/signout', logout);
+
+app.use(routes);
 
 app.use(errorLogger);
 app.use(errors());
