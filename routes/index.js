@@ -1,10 +1,11 @@
 const { router } = require('../utils/config');
-const { NotFoundError } = require('../utils/constants');
 
-const auth = require('../middlewares/auth');
-
-const userRouter = require('./users');
-const movieRouter = require('./movies');
+const {
+  NotFoundError,
+  userRouter,
+  movieRouter,
+  auth,
+} = require('../utils/constants');
 
 router.use('/users', auth, userRouter);
 router.use('/movies', auth, movieRouter);
