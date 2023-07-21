@@ -1,9 +1,12 @@
 const {
   mongoose,
+} = require('../utils/config');
+
+const {
   BadRequestError,
   NotFoundError,
   ForbiddenError,
-} = require('../config');
+} = require('../utils/constants');
 
 const Movie = require('../models/movie');
 

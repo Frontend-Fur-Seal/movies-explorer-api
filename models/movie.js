@@ -1,7 +1,10 @@
 const {
   mongoose,
+} = require('../utils/config');
+
+const {
   isURL,
-} = require('../config');
+} = require('../utils/constants');
 
 const movieSchema = new mongoose.Schema({
   country: {

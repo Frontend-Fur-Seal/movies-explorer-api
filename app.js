@@ -8,11 +8,14 @@ const {
   mongoose,
   cookieParser,
   errors,
+} = require('./utils/config');
+
+const {
   // NotFoundError,
   ErrorHandler,
   PORT,
   MONGO_URL,
-} = require('./config');
+} = require('./utils/constants');
 
 // const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');

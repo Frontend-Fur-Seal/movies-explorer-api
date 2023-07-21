@@ -2,10 +2,13 @@ const {
   mongoose,
   bcrypt,
   jwt,
+} = require('../utils/config');
+
+const {
   JWT_SECRET,
   BadRequestError,
   ConflictingRequestError,
-} = require('../config');
+} = require('../utils/constants');
 
 const User = require('../models/user');
 

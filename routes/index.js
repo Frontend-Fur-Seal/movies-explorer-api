@@ -1,4 +1,5 @@
-const { router, NotFoundError } = require('../config');
+const { router } = require('../utils/config');
+const { NotFoundError } = require('../utils/constants');
 
 const auth = require('../middlewares/auth');
 

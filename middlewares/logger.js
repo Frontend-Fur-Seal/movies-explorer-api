@@ -1,7 +1,7 @@
 const {
   winston,
   expressWinston,
-} = require('../config');
+} = require('../utils/config');
 
 const requestLogger = expressWinston.logger({
   transports: [

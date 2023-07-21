@@ -1,9 +1,12 @@
 const {
   jwt,
+} = require('../utils/config');
+
+const {
   JWT_SECRET,
   NODE_ENV,
   UnauthorizedError,
-} = require('../config');
+} = require('../utils/constants');
 
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {

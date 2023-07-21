@@ -2,7 +2,7 @@ const {
   celebrate,
   Joi,
   // checkUrl,
-} = require('../config');
+} = require('../utils/config');
 
 const validationSignin = celebrate({
   body: Joi.object().keys({

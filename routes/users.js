@@ -1,4 +1,4 @@
-const { router } = require('../config');
+const { router } = require('../utils/config');
 
 const { getUser, upgradeUser } = require('../controllers/users');
 

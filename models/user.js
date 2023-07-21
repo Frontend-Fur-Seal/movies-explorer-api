@@ -2,8 +2,11 @@ const {
   mongoose,
   bcrypt,
   isEmail,
+} = require('../utils/config');
+
+const {
   UnauthorizedError,
-} = require('../config');
+} = require('../utils/constants');
 
 const userSchema = new mongoose.Schema({
   name: {
