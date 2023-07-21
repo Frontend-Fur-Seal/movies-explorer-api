@@ -1,20 +1,21 @@
 /* eslint-disable no-console */
 require('dotenv').config();
+const routes = require('./routes');
 
 const {
   cors,
   express,
   mongoose,
   cookieParser,
-  // errors,
+  errors,
   // NotFoundError,
-  // ErrorHandler,
+  ErrorHandler,
   PORT,
   MONGO_URL,
 } = require('./config');
 
 // const auth = require('./middlewares/auth');
-// const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 // const { login, createUser, logout } = require('./controllers/users');
 // const { validationSignin, validationSignup } = require('./middlewares/celebrateValidation');
 
@@ -41,7 +42,10 @@ app.options('*', cors());
 app.use(cookieParser());
 app.use(express.json());
 
-// app.use(requestLogger);
+app.use(requestLogger);
+
+app.use(routes);
+
 /*
 app.post('/signin', validationSignin, login);
 app.post('/signup', validationSignup, createUser);
@@ -51,10 +55,11 @@ app.get('/signout', auth, logout);
 app.use('/*', auth, (req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
+*/
 app.use(errorLogger);
 app.use(errors());
 app.use(ErrorHandler);
-*/
+
 app.listen(PORT, (err) => {
   if (err) {
     return console.error(err);

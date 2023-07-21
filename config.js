@@ -10,6 +10,7 @@ const isURL = require('validator/lib/isURL');
 const isEmail = require('validator/lib/isEmail');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const router = require('express').Router();
 
 const BadRequestError = require('./errors/BadRequestError');
 const NotFoundError = require('./errors/NotFoundError');
@@ -34,6 +35,7 @@ module.exports = {
   bcrypt,
   jwt,
   isURL,
+  router,
   isEmail,
   cookieParser,
   errors,
