@@ -16,8 +16,8 @@ const {
 
 // const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const { login, createUser, logout } = require('./controllers/users');
-// const { validationSignin, validationSignup } = require('./middlewares/celebrateValidation');
+const { login, createUser, logout } = require('./controllers/users');
+const { validationSignin, validationSignup } = require('./middlewares/celebrateValidation');
 
 mongoose.connect(`${MONGO_URL}/bitfilmsdb`)
   .then(() => {
@@ -46,16 +46,10 @@ app.use(requestLogger);
 
 app.use(routes);
 
-/*
 app.post('/signin', validationSignin, login);
 app.post('/signup', validationSignup, createUser);
-app.use('/users', auth, require('./routes/users'));
-app.use('/cards', auth, require('./routes/cards'));
-app.get('/signout', auth, logout);
-app.use('/*', auth, (req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
-});
-*/
+app.get('/signout', logout);
+
 app.use(errorLogger);
 app.use(errors());
 app.use(ErrorHandler);

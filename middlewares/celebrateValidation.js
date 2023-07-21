@@ -1,7 +1,7 @@
 const {
   celebrate,
   Joi,
-  checkUrl,
+  // checkUrl,
 } = require('../config');
 
 const validationSignin = celebrate({
@@ -13,27 +13,19 @@ const validationSignin = celebrate({
 
 const validationSignup = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
-    avatar: Joi.string().pattern(checkUrl),
+    name: Joi.string().required().min(2).max(30),
     email: Joi.string().required().email(),
     password: Joi.string().required().min(2),
-  }),
-});
-
-const validationUserId = celebrate({
-  params: Joi.object().keys({
-    userId: Joi.string().length(24).hex().required(),
   }),
 });
 
 const validationUpgradeUser = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
-    about: Joi.string().required().min(2).max(30),
+    email: Joi.string().required().email(),
   }),
 });
-
+/*
 const validationCreateCard = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
@@ -46,12 +38,11 @@ const validateCardId = celebrate({
     cardId: Joi.string().length(24).hex().required(),
   }),
 });
-
+*/
 module.exports = {
   validationSignin,
   validationSignup,
-  validationCreateCard,
-  validationUserId,
+  // validationCreateCard,
   validationUpgradeUser,
-  validateCardId,
+  // validateCardId,
 };
