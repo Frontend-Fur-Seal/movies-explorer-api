@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 require('dotenv').config();
+const routes = require('./routes');
 
 const {
   cors,
@@ -10,19 +11,12 @@ const {
 } = require('./utils/config');
 
 const {
-  routes,
   requestLogger,
   errorLogger,
   // NotFoundError,
   ErrorHandler,
   PORT,
   MONGO_URL,
-  auth,
-  login,
-  createUser,
-  logout,
-  validationSignin,
-  validationSignup,
 } = require('./utils/constants');
 
 mongoose.connect(`${MONGO_URL}/bitfilmsdb`)
@@ -49,10 +43,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(requestLogger);
-
-app.post('/signin', validationSignin, login);
-app.post('/signup', validationSignup, createUser);
-app.get('/signout', auth, logout);
 
 app.use(routes);
 

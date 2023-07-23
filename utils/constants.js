@@ -1,3 +1,4 @@
+const routes = require('../routes/index');
 const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
@@ -7,7 +8,6 @@ const ErrorHandler = require('../errors/ErrorHandler');
 
 const checkUrl = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
-const routes = require('../routes');
 const userRouter = require('../routes/users');
 const movieRouter = require('../routes/movies');
 const auth = require('../middlewares/auth');
