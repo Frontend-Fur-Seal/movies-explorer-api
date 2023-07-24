@@ -1,8 +1,6 @@
-const {
-  mongoose,
-  bcrypt,
-  jwt,
-} = require('../utils/config');
+const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const {
   BadRequestError,

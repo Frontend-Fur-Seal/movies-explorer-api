@@ -1,6 +1,4 @@
-const {
-  mongoose,
-} = require('../utils/config');
+const mongoose = require('mongoose');
 
 const {
   NotFoundError,

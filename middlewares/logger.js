@@ -1,7 +1,5 @@
-const {
-  winston,
-  expressWinston,
-} = require('../utils/config');
+const winston = require('winston');
+const expressWinston = require('express-winston');
 
 const requestLogger = expressWinston.logger({
   transports: [

@@ -12,16 +12,12 @@ const {
   validationUpgradeUser,
 } = require('../middlewares/celebrateValidation');
 
-const { requestLogger, errorLogger } = require('../middlewares/logger');
-
 module.exports = {
   validationSignin,
   validationSignup,
   validationCreateCard,
   validateCardId,
   validationUpgradeUser,
-  requestLogger,
-  errorLogger,
   ErrorHandler,
   BadRequestError,
   NotFoundError,

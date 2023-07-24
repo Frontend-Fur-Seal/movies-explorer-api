@@ -1,7 +1,4 @@
-const {
-  celebrate,
-  Joi,
-} = require('../utils/config');
+const { celebrate, Joi } = require('celebrate');
 
 const validationSignin = celebrate({
   body: Joi.object().keys({

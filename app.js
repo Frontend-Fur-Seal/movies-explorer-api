@@ -1,18 +1,14 @@
 /* eslint-disable no-console */
 require('dotenv').config();
+const cors = require('cors');
+const express = require('express');
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const { errors } = require('celebrate');
 const routes = require('./routes');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const {
-  cors,
-  express,
-  mongoose,
-  cookieParser,
-  errors,
-} = require('./utils/config');
-
-const {
-  requestLogger,
-  errorLogger,
   ErrorHandler,
 } = require('./utils/constants');
 
