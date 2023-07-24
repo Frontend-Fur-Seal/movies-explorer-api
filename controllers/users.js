@@ -40,11 +40,7 @@ const login = (req, res, next) => {
       res.send({ message: 'Вы успешно вошли в систему' });
     })
     .catch((err) => {
-      if (err.message === 'Неверные почта или пароль') {
-        next(err);
-      } else {
-        next(err);
-      }
+      next(err);
     });
 };
 
