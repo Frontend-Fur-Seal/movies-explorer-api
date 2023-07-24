@@ -3,10 +3,13 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const routes = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const limiter = require('./security/limiter');
 
 const {
   ErrorHandler,
@@ -40,11 +43,15 @@ app.use(express.json());
 
 app.use(requestLogger);
 
+app.use(helmet());
+
 app.use(routes);
 
 app.use(errorLogger);
 app.use(errors());
 app.use(ErrorHandler);
+
+app.use(limiter);
 
 app.listen(PORT, (err) => {
   if (err) {
