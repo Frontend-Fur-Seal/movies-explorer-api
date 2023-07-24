@@ -1,8 +1,5 @@
 const {
   mongoose,
-} = require('../utils/config');
-
-const {
   isURL,
 } = require('../utils/config');
 
