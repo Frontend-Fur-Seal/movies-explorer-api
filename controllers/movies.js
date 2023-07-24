@@ -2,8 +2,9 @@ const {
   mongoose,
 } = require('../utils/config');
 
+const BadRequestError = require('../errors/BadRequestError');
+
 const {
-  BadRequestError,
   NotFoundError,
   ForbiddenError,
 } = require('../utils/constants');
@@ -12,7 +13,7 @@ const Movie = require('../models/movie');
 
 const getMovies = (req, res, next) => {
   Movie.find({}).sort({ createdAt: -1 })
-    // .populate('owner')
+    .populate('owner')
     .then((movie) => res.send({ movie }))
     .catch(next);
 };
@@ -21,7 +22,7 @@ const createMovie = (req, res, next) => {
   const newMovieData = req.body;
   newMovieData.owner = req.user._id;
   Movie.create(newMovieData)
-    // .then((newMovie) => newMovie.populate('owner'))
+    .then((newMovie) => newMovie.populate('owner'))
     .then((movie) => res.send({ data: movie }))
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {

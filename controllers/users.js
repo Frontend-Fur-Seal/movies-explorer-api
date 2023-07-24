@@ -5,10 +5,13 @@ const {
 } = require('../utils/config');
 
 const {
-  JWT_SECRET,
   BadRequestError,
   ConflictingRequestError,
 } = require('../utils/constants');
+
+const {
+  JWT_SECRET,
+} = process.env;
 
 const User = require('../models/user');
 

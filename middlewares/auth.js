@@ -3,8 +3,11 @@ const {
 } = require('../utils/config');
 
 const {
-  JWT_SECRET,
   NODE_ENV,
+  JWT_SECRET,
+} = process.env;
+
+const {
   UnauthorizedError,
 } = require('../utils/constants');
 

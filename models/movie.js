@@ -4,7 +4,7 @@ const {
 
 const {
   isURL,
-} = require('../utils/constants');
+} = require('../utils/config');
 
 const movieSchema = new mongoose.Schema({
   country: {

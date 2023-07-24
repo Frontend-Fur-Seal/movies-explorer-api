@@ -13,11 +13,13 @@ const {
 const {
   requestLogger,
   errorLogger,
-  // NotFoundError,
   ErrorHandler,
+} = require('./utils/constants');
+
+const {
   PORT,
   MONGO_URL,
-} = require('./utils/constants');
+} = process.env;
 
 mongoose.connect(`${MONGO_URL}/bitfilmsdb`)
   .then(() => {
@@ -28,13 +30,11 @@ mongoose.connect(`${MONGO_URL}/bitfilmsdb`)
 
 const app = express();
 
-/*
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-*/
 
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.options('*', cors());
