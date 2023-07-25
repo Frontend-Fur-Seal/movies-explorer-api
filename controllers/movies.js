@@ -11,7 +11,10 @@ const Movie = require('../models/movie');
 const getMovies = (req, res, next) => {
   Movie.find({}).sort({ createdAt: -1 })
     .populate('owner')
-    .then((movie) => res.send({ movie }))
+    .then((movies) => {
+      const userMovie = movies.filter((elem) => elem.owner._id.toString() === req.user._id);
+      res.send(userMovie);
+    })
     .catch(next);
 };
 
