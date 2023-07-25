@@ -87,6 +87,8 @@ const upgradeUser = (req, res, next) => {
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError('Некорректные данные пользователя'));
+      } else if (err.code === 11000) {
+        next(new ConflictingRequestError('Пользователь с таким email уже существует'));
       } else {
         next(err);
       }

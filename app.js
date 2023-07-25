@@ -44,14 +44,13 @@ app.use(express.json());
 app.use(requestLogger);
 
 app.use(helmet());
+app.use(limiter);
 
 app.use(routes);
 
 app.use(errorLogger);
 app.use(errors());
 app.use(ErrorHandler);
-
-app.use(limiter);
 
 app.listen(PORT, (err) => {
   if (err) {
