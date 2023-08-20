@@ -20,7 +20,7 @@ const {
   MONGO_URL,
 } = process.env;
 
-mongoose.connect(`${MONGO_URL}/bitfilmsdb`)
+mongoose.connect(`${MONGO_URL}/diplomaYa`)
   .then(() => {
     console.log('connected to db');
   }).catch((err) => {
@@ -35,7 +35,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
 app.options('*', cors());
 
 app.use(cookieParser());
