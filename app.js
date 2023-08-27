@@ -35,7 +35,7 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-app.use(cors({ origin: 'https://diploma.sherstnev.nomoredomains.xyz', credentials: true }));
+app.use(cors({ origin: 'http://localhost/3001', credentials: true }));
 app.options('*', cors());
 
 app.use(cookieParser());
