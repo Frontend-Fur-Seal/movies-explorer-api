@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VladimirSherstnev/movies-explorer-api.git"
+    "url": "git+https://github.com/Frontend-Fur-Seal/movies-explorer-api.git"
   },
-  "author": "Vladimir Sherstnev",
+  "author": "Olga Gvozdeva",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/VladimirSherstnev/movies-explorer-api/issues"
+    "url": "https://github.com/Frontend-Fur-Seal/movies-explorer-api/issues"
   },
-  "homepage": "https://github.com/VladimirSherstnev/movies-explorer-api#readme",
+  "homepage": "https://github.com/Frontend-Fur-Seal/movies-explorer-api#readme",
   "devDependencies": {
     "cross-env": "^7.0.3",
     "eslint": "^8.45.0",
